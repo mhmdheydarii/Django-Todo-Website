@@ -1,0 +1,16 @@
+<ul> 
+    <!-- Iterate over object_list -->
+    {% for post in posts %} 
+    <!-- Display Objects -->
+    <li>{{ post.title }}</li> 
+    <li>{{ post.start_date }} - {{ post.end_date }}</li> 
+    <a href="{% url 'home:post-update' pk=post.id %}">
+        <p>Edit</p>
+    </a>
+  
+    <hr/> 
+    <!-- If object_list is empty  -->
+    {% empty %} 
+    <li>No objects yet.</li> 
+    {% endfor %} 
+</ul> 
