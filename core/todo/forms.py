@@ -1,6 +1,7 @@
 from django import forms
-from .models import Post
-class CreatePost(forms.ModelForm):
+from .models import Task
+
+class CreateTask(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ['title', 'end_date']
+        model = Task
+        fields = ['task', 'end_date']

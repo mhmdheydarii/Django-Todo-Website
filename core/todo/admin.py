@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Post
+from .models import Task
 # Register your models here.
 
-class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'start_date', 'end_date']
-    search_fields = ['title',]
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ['task', 'start_date', 'end_date']
+    search_fields = ['task',]
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Task, TaskAdmin)

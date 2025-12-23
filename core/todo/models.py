@@ -1,9 +1,10 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
-class Post(models.Model):
-    title = models.CharField(max_length=250)
+class Task(models.Model):
+    author = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
+    task = models.CharField(max_length=250)
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField()
 
