@@ -7,3 +7,20 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+  
+  master:
+    image: locustio/locust
+    container_name: locust-master
+    ports:
+     - "8089:8089"
+    volumes:
+      - ./core/locust/:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --master -H http://backend:8000
+  
+  worker:
+    image: locustio/locust
+    container_name: locust-worker
+    volumes:
+      - ./core/locust/:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --worker --master-host=master
+
